@@ -1,0 +1,28 @@
+{
+  "name": "QreditMotion",
+  "productName": "QreditMotion",
+  "version": "2.0.0",
+  "displayName": "Qredit Motion",
+  "description": "Qredit Motion Desktop",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Qredit Motion Desktop\" && electron-packager . QreditDesktop --platform win32 --arch x64 --out /release-builds ",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds && electron-installer-debian --src release-builds/QreditMotion-linux-x64 --dest release-builds --arch amd64",
+    "create-installer-mac": "electron-installer-dmg ./release-builds/Electron\\ webview-darwin-x64/Electron\\ qredit.app electron-webview --out=release-builds --overwrite --icon=assets/icons/mac/icon.icns"
+  },
+  "repository": "https://github.com/qredit/motion-desktop",
+  "keywords": [
+    "qredit",
+    "motion"
+  ],
+  "author": "GitHub",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-installer-debian":"3.1.0",
+    "electron": "^8.0.0",
+    "electron-installer-dmg": "^3.0.0",
+    "electron-packager": "^14.2.1"
+  }
+}
